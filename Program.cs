@@ -8,13 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //mysql service
-builder.Services.AddDbContext<MyDbContext>((ServiceProvider, options) =>
-    {
-        var configuration = ServiceProvider.GetRequiredService<IConfiguration>();
-        var connectionString = configuration.GetConnectionString("DefaultConnection");
-        var serverVersion = new MySqlServerVersion(new Version(8, 0, 2)); // Replace with your MySQL server version
-        options.UseMySql(connectionString, serverVersion);
-    });
+builder.Services.AddDbContext<MyDbContext>(options =>
+    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
+                     new MySqlServerVersion(new Version(8, 0, 2))));
 
 var app = builder.Build();
 
