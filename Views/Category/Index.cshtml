@@ -1,0 +1,37 @@
+@model IEnumerable<Catagory>
+@{
+    ViewData["Title"] = "Category";
+}
+
+<H1>List Of Catagories</H1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Display Order</td>
+            <td>Creation Date</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr>
+                <td colspan="4" class="text-center">No categories found.</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Id</td>
+                    <td>@i.Name</td>
+                    <td>@i.DisplayOrder</td>
+                    <td>@i.CreatedDateTime</td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
