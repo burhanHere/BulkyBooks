@@ -4,13 +4,8 @@
 }
 
 @* Check for success message and display alert *@
-@if (TempData["Message"] != null)
-{
-    <div class="alert @TempData["Class"] alert-dismissible fade show opacity-75" role="alert" id="Myalert"
-    style="display:block; position:absolute; width: max-content">
-    @TempData["Message"]
-</div>
-}
+@* an be added in the _layout before @RenderBody to inclue it to all the pages *@
+<partial name="_Alert" />
 
 <form asp-controller="Category" asp-action="CreateCategory" method="post" class="w-100 bg-secondary p-5"
     style="border-radius: 20px;">
