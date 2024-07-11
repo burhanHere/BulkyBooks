@@ -19,6 +19,7 @@ public class CategoryController(MyDbContext context) : Controller
     //GET
     public IActionResult CreateCategory()
     {
+        ModelState.Clear();
         return View();
     }
 
@@ -26,19 +27,27 @@ public class CategoryController(MyDbContext context) : Controller
     [ValidateAntiForgeryToken]//this is added to prevent corss site request forgery genrates a kwy in the form the at post request validstes the kay
     public IActionResult CreateCategory(Catagory newCategory)
     {
-        if (ModelState.IsValid)
+        if (newCategory.Name == newCategory.DisplayOrder.ToString())
         {
-            _context.Categories.Add(newCategory);
-            _context.SaveChanges();
-            TempData["Message"] = "Category created successfully!";
-            TempData["Class"] = "alert-success";
-            return RedirectToAction("CreateCategory");//  to go to some ither page of some other controller you have tp pass a second peremeter controlelName in this function
+            ModelState.Clear();
+            ModelState.AddModelError("CustomeError", "The display Order can not be same as Category Name.");
+            return View("CreateCategory");
         }
-        TempData["Message"] = "Category creation failed!";
-        TempData["Class"] = "alert-danger";
-        return View("CreateCategory");
+        else
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Categories.Add(newCategory);
+                _context.SaveChanges();
+                TempData["Message"] = "Category created successfully!";
+                TempData["Class"] = "alert-success";
+                return RedirectToAction("CreateCategory");//  to go to some ither page of some other controller you have tp pass a second peremeter controlelName in this function
+            }
+            TempData["Message"] = "Category creation failed!";
+            TempData["Class"] = "alert-danger";
+            return View("CreateCategory");
+        }
     }
-
 
     public IActionResult Error()
     {
