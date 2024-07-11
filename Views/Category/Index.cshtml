@@ -1,37 +1,65 @@
+@* catching the variables which are passed to th view to ve used in view *@
 @model IEnumerable<Catagory>
 @{
     ViewData["Title"] = "Category";
 }
 
-<H1>List Of Catagories</H1>
-<table class="table">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Display Order</td>
-            <td>Creation Date</td>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model == null)
-        {
+@* style="display: flex; justify-content:space-evenly; align-items: center; border: 1px solid #ccc;padding: 0.5rem" *@
+<div class="container p-3">
+    <div class="row">
+        <div class="col-6">
+            <H1 class="text-primery">Catagories List</H1>
+        </div>
+        <div class="col-6  text-end">
+            <a asp-controller="Category" asp-action="CreateCategory"
+                class="btn btn-success text-secondary-emphasis font-weight-bold">
+                <i class="bi bi-plus-circle"></i> &nbsp;
+                Create New Category
+            </a>
+        </div>
+    </div>
+    <br><br>
+
+    <table class="table">
+        <thead>
             <tr>
-                <td colspan="4" class="text-center">No categories found.</td>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Display Order</td>
+                <td>Creation Date</td>
+                <td>Delete Entry</td>
+                <td>Edit Entry</td>
             </tr>
-        }
-        else
-        {
-            @foreach (var i in Model)
+        </thead>
+        <tbody>
+            @if (Model == null)
             {
                 <tr>
-                    <td>@i.Id</td>
-                    <td>@i.Name</td>
-                    <td>@i.DisplayOrder</td>
-                    <td>@i.CreatedDateTime.ToString("dd/MM/yyyy")</td>
+                    <td colspan="4" class="text-center">No categories found.</td>
                 </tr>
             }
-
-        }
-    </tbody>
-</table>
+            else
+            {
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@i.Id</td>
+                        <td>@i.Name</td>
+                        <td>@i.DisplayOrder</td>
+                        <td>@i.CreatedDateTime.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <button type="button" class="btn btn btn-outline-danger">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn btn-outline-warning">
+                                <i class="bi bi-pencil-square"></i>
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

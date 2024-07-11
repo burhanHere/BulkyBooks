@@ -2311,11 +2311,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/muhammad-burhan/Desktop/temp/BulkyBooks/BulkyBooks/BulkyBooks.csproj",
+      "projectUniqueName": "/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/BulkyBooks.csproj",
       "projectName": "BulkyBooks",
-      "projectPath": "/home/muhammad-burhan/Desktop/temp/BulkyBooks/BulkyBooks/BulkyBooks.csproj",
+      "projectPath": "/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/BulkyBooks.csproj",
       "packagesPath": "/home/muhammad-burhan/.nuget/packages/",
-      "outputPath": "/home/muhammad-burhan/Desktop/temp/BulkyBooks/BulkyBooks/obj/",
+      "outputPath": "/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/muhammad-burhan/.nuget/NuGet/NuGet.Config"
@@ -2382,7 +2382,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

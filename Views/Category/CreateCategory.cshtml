@@ -1,0 +1,51 @@
+@model Catagory;
+@{
+    ViewData["Title"] = "Create New Category";
+}
+
+@* Check for success message and display alert *@
+@if (TempData["Message"] != null)
+{
+    <div class="alert @TempData["Class"] alert-dismissible fade show" role="alert">
+    @TempData["Message"]
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+
+<form asp-controller="Category" asp-action="CreateCategory" method="post" class="w-100 bg-secondary p-5"
+    style="border-radius: 20px;">
+    <h2 class="text-light">Create New Category</h2>
+    <hr>
+    <div class="w-50 container justify-content-center ">
+        <div class="d-flex justify-content-center m-2">
+            <label asp-for="@Model.Name" class="label w-25 text-light">Name</label>
+            <input asp-for="@Model.Name" class="form-control" required placeholder="Enter Category Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-center m-2">
+            <label asp-for="@Model.DisplayOrder" class="label w-25 text-light">Display Order</label>
+            <input asp-for="@Model.DisplayOrder" type="number" class="form-control" placeholder="Enter Order Number">
+            <span asp-validation-for="@Model.DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center">
+            <button type="submit" class="btn btn-primary col-sm-4 p-1 m-2 mt-4 w-100">Add Category</button>
+            <a asp-controller="Category" asp-action="Index" class="btn btn-primary col-sm-4 p-1 m-2 mt-4 w-100">Back to
+                Category List</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Auto close the success alert after 2 seconds
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#success-alert').fadeOut('slow');
+            }, 2500); // 2000 milliseconds = 2 seconds
+        });
+    </script>
+}
