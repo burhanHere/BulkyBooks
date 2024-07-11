@@ -6,7 +6,7 @@ namespace BulkyBooks.Controllers;
 
 public class LandingPageController() : Controller
 {
-    public IActionResult Index()
+    public IActionResult IndexLandingPage()
     {
         return View();
     }

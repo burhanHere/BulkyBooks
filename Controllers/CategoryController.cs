@@ -10,7 +10,7 @@ public class CategoryController(MyDbContext context) : Controller
 {
     private readonly MyDbContext _context = context;
 
-    public IActionResult Index()
+    public IActionResult IndexCategory()
     {
         // var conn = _context.Database.GetConnectionString();
         IEnumerable<Catagory> CatagoryList = _context.Categories.ToList();
@@ -27,10 +27,15 @@ public class CategoryController(MyDbContext context) : Controller
     [ValidateAntiForgeryToken]//this is added to prevent corss site request forgery genrates a kwy in the form the at post request validstes the kay
     public IActionResult CreateCategory(Catagory newCategory)
     {
+        // removing enpty spaces from edn of data
+        newCategory.Name = newCategory.Name.Trim();
+
         if (newCategory.Name == newCategory.DisplayOrder.ToString())
         {
             ModelState.Clear();
             ModelState.AddModelError("CustomeError", "The display Order can not be same as Category Name.");
+            TempData["Message"] = "Category creation failed!";
+            TempData["Class"] = "alert-danger";
             return View("CreateCategory");
         }
         else

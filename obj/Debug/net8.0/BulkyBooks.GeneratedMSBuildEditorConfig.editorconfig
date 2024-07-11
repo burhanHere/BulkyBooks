@@ -22,12 +22,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvQ3JlYXRlQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/Views/Category/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
+[/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/Views/Category/IndexCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0ZWdvcnkvSW5kZXhDYXRlZ29yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/Views/LandingPage/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGFuZGluZ1BhZ2UvSW5kZXguY3NodG1s
+[/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/Views/LandingPage/IndexLandingPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGFuZGluZ1BhZ2UvSW5kZXhMYW5kaW5nUGFnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/muhammad-burhan/Desktop/BulkyBooks/BulkyBooks/Views/Shared/Error.cshtml]
